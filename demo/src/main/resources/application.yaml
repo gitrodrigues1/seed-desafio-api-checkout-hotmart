@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:15432/postgres
+    username: pgdb
+    password: pgPW2023!
+  jpa:
+    show-sql: true
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
+  sql:
+    init:
+      platform: postgres
+      mode: always
+      data-locations:
+      - classpath:/data.sql
+logging:
+  level:
+    org:
+      hibernate: DEBUG
+  
