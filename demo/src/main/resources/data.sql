@@ -1,27 +1,3 @@
-INSERT INTO offer (id, price, max_installments, customer_fee, smart_installment ) VALUES 
-(1, 10.00, 10, false, false),
-(2, 8.00, 6, false, false),
-(3, 7.00, 3, false, false);
-
-INSERT INTO product (id, description, details, comission, access_time, offer_id) VALUES
-(1, 'Como se tornar rico', 'Curso Série Ouro', 0.0, '2023-12-22', null),
-(2, 'Como se tornar milionário', 'Curso Série Platina', 2.0, '2023-12-22', 1),
-(3, 'Curso de Java Iniciante', 'Curso Série Ouro', 0.0, '2023-12-22', null);
-
-INSERT INTO person (id, name, email, document, country_id ) VALUES
-(1, 'John Hopkins', 'jh@yahoo.com', 22222222-22, 236 ),
-(2, 'Bruce Summerten', 'bruce@yahoo.com', 33333333-3, 236 ),
-(3, 'Alice Runner', 'alice@gmail.com', 44444444-4, 235),
-(4, 'Catherine Leta Stones', 'cathy@gmail.com', 22222222-22, 159 ),
-(5, 'Vandercleversson', 'v@gmail.com', 50962503-8, 32 );
-
--- INSERT INTO payment_details () VALUES
-
--- INSERT INTO sales_order () VALUES
-
--- INSERT INTO sales_order_items () VALUES
-
-
 INSERT INTO country (id, name, code) VALUES
 (1, 'Afghanistan',	'AF'),
 (2, 'Åland Islands',	'AX'),
@@ -242,7 +218,7 @@ INSERT INTO country (id, name, code) VALUES
 (217, 'Syrian Arab Republic',	'SY'),
 (218, 'Taiwan Province of China',	'TW'),
 (219, 'Tajikistan',	'TJ'),
-(220, 'Tanzania'	'TZ'),
+(220, 'Tanzania',	'TZ'),
 (221, 'Thailand',	'TH'),
 (222, 'Timor-Leste',	'TL'),
 (223, 'Togo',	'TG'),
@@ -272,3 +248,28 @@ INSERT INTO country (id, name, code) VALUES
 (247, 'Yemen',	'YE'),
 (248, 'Zambia',	'ZM'),
 (249, 'Zimbabwe',	'ZW');
+
+INSERT INTO person (id, name, email, document, country_id ) VALUES
+(1, 'John Hopkins', 'jh@yahoo.com', 22222222-22, 236 ),
+(2, 'Bruce Summerten', 'bruce@yahoo.com', 33333333-3, 236 ),
+(3, 'Alice Runner', 'alice@gmail.com', 44444444-4, 235),
+(4, 'Catherine Leta Stones', 'cathy@gmail.com', 22222222-22, 159 ),
+(5, 'Vandercleversson', 'v@gmail.com', 50962503-8, 32 );
+
+INSERT INTO product (id, description, details, person_id, comission, access_time, default_offer) VALUES
+(1, 'Como se tornar rico', 'Curso Série Ouro', 2, 0.0, '2023-12-22', 1),
+(2, 'Como se tornar milionário', 'Curso Série Platina', 2, 2.0, '2023-12-22', 2),
+(3, 'Curso de Java Iniciante', 'Curso Série Ouro', 1, 0.0, '2023-12-22', 5);
+
+INSERT INTO offer (id, price, max_installments, customer_fee, smart_installment, product_id ) VALUES 
+(1, 10.99, 10, false, false, 1),
+(2, 10.99, 10, false, false, 2),
+(3, 10.99, 10, false, false, 3),
+(4, 8.50, 6, false, false, 3),
+(5, 7.99, 3, false, false, 3);
+
+-- INSERT INTO payment_details () VALUES
+
+-- INSERT INTO sales_order () VALUES
+
+-- INSERT INTO sales_order_items () VALUES
