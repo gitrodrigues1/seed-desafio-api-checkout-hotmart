@@ -1,12 +1,14 @@
 package com.desafio.hotmart.demo.model;
 
-import jakarta.persistence.CascadeType;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -23,8 +25,12 @@ public class Person {
     private String email;
     private String document;
 
-    @OneToOne(cascade = CascadeType.ALL )
-    @JoinColumn(name = "country_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "country_id")
     private Country country;
+
+    @OneToMany(mappedBy = "person")
+    private List<Product> products;
+
     
 }
